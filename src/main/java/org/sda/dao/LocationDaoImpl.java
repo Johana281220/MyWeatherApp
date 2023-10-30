@@ -1,6 +1,5 @@
 package org.sda.dao;
 
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -9,16 +8,14 @@ import org.sda.model.Location;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import java.security.PublicKey;
 import java.util.List;
-import java.util.Queue;
 import java.util.UUID;
 
-public class LocationImpl implements LocationDao {
+public class LocationDaoImpl implements LocationDao {
 
     private SessionFactory sessionFactory;
 
-    public LocationImpl(SessionFactory sessionFactory) {
+    public LocationDaoImpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 

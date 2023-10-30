@@ -89,4 +89,8 @@ public class WeatherData {
                 ", windDirection='" + windDirection + '\'' +
                 '}';
     }
+
+    public void setWindSpeed(double windSpeed) {
+
+    }
 }

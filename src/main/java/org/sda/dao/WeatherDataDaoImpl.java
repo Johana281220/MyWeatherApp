@@ -8,15 +8,14 @@ import org.sda.model.WeatherData;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.criteria.Root;
 import java.util.List;
 import java.util.UUID;
 
-public class WeatherDataImpl implements WeatherDataDao {
+public class WeatherDataDaoImpl implements WeatherDataDao {
 
     private SessionFactory sessionFactory;
-    public WeatherDataImpl(SessionFactory sessionFactory){
+    public WeatherDataDaoImpl(SessionFactory sessionFactory){
         this.sessionFactory=sessionFactory;
     }
 

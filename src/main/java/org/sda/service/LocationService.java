@@ -20,5 +20,6 @@ public interface LocationService {
     public void  deleteLocation(Location location);
 
 
+    List<Location> getAllLocations();
 
 }

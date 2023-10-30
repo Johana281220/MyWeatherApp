@@ -2,7 +2,6 @@ package org.sda.service;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.sda.dao.LocationDao;
 import org.sda.dao.WeatherDataDao;
 import org.sda.model.Location;
 import org.sda.model.WeatherData;
@@ -12,7 +11,7 @@ import java.util.UUID;
 
 import static org.sda.util.HibernateUtil.sessionFactory;
 
-public class WeatherServiceImpl implements WeatherDataService {
+public class WeatherServiceImpl implements WeatherService {
     private WeatherDataDao weatherDataDao;
 
     public WeatherServiceImpl(WeatherDataDao weatherDataDao) {

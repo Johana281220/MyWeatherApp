@@ -16,15 +16,19 @@ public class Location {
     private String country;
 
 
-    public Location(UUID id, double latitude, double lognitudie, String region, String country) {
+    public Location(UUID id, double latitude, double lognitude, String region, String country) {
         this.id = id;
         this.latitude = latitude;
-        this.lognitude = lognitudie;
+        this.lognitude = lognitude;
         this.region = region;
         this.country = country;
     }
 
     public Location() {
+    }
+
+    public Location(double latitude, double longitude, String region, String country) {
+
     }
 
     public UUID getId() {

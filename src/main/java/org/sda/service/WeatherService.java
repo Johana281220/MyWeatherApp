@@ -6,7 +6,7 @@ import org.sda.model.WeatherData;
 import java.util.List;
 import java.util.UUID;
 
-public interface WeatherDataService {
+public interface WeatherService {
     WeatherData getWeatherDataById(UUID id);
 
     List<WeatherData> getWeatherDataForLocation(Location location);
