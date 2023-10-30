@@ -90,7 +90,5 @@ public class WeatherData {
                 '}';
     }
 
-    public void setWindSpeed(double windSpeed) {
-
-    }
+    
 }
