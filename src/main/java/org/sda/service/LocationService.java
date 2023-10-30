@@ -4,7 +4,7 @@ import org.hibernate.id.UUIDGenerationStrategy;
 import org.sda.model.Location;
 
 import java.util.List;
-import java.util.UUID
+import java.util.UUID;
 public interface LocationService {
     public Location getLocationById(UUID id);
     public List<Location> getAllLocation(Location location);
