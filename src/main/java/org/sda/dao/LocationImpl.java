@@ -40,11 +40,7 @@ public class LocationImpl implements LocationDao {
             return q.getResultList();
         }
     }
-    // try (Session session = sessionFactory.openSession()) {
-    //    String hql = "FROM Location"; // Define the HQL query
-    //    Query<Location> query = session.createQuery(hql, Location.class); // Create a query object
-    //    return query.list(); // Execute the query and return the results
-    //}
+    
     @Override
     public void save(Location location) {
         Session session= sessionFactory.getCurrentSession();
