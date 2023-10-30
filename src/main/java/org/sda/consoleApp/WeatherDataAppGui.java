@@ -42,8 +42,8 @@ public class WeatherDataAppGui {
         LocationDao locationDao = new LocationDaoImpl(factory);
         WeatherDataDao weatherDataDao = new WeatherDataDaoImpl(factory);
 
-        locationService = new LocationServiceImpl(locationDao); // Initialize the class-level field
-        weatherDataService = new WeatherServiceImpl(weatherDataDao); // Initialize the class-level field
+        locationService = new LocationServiceImpl(locationDao);
+        weatherDataService = new WeatherServiceImpl(weatherDataDao);
 
         frame = new JFrame("Weather Data App");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -83,7 +83,7 @@ public class WeatherDataAppGui {
 
                     Location newLocation = new Location(latitude, longitude, region, country);
 
-                    // Add the new location
+                    
                     locationService.addLocation(newLocation);
 
                     JOptionPane.showMessageDialog(frame, "Location added successfully.");
@@ -112,22 +112,22 @@ public class WeatherDataAppGui {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
 
-        // Get a list of locations from your LocationService
+    
         List<Location> locations = locationService.getAllLocations();
 
-        // Create a model for the JList to hold your locations
+        
         DefaultListModel<Location> listModel = new DefaultListModel<>();
         for (Location location : locations) {
             listModel.addElement(location);
         }
 
-        // Create a JList with the model
+        
         JList<Location> locationList = new JList<>(listModel);
 
-        // Add the JList to a scroll pane in case there are too many locations to fit
+        
         JScrollPane scrollPane = new JScrollPane(locationList);
 
-        // Add the scroll pane to the panel
+        
         panel.add(scrollPane, BorderLayout.CENTER);
 
         return panel;
@@ -161,7 +161,7 @@ public class WeatherDataAppGui {
         panel.add(cityField);
         panel.add(downloadButton);
 
-        // Add the weather panel to your main panel
+
         panel.add(weatherPanel);
 
         return panel;
@@ -171,18 +171,18 @@ public class WeatherDataAppGui {
         try {
             String apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
 
-            // Open a connection to the URL
+            
             URL url = new URL(apiUrl);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-            // Set request method to GET
+            
             connection.setRequestMethod("GET");
 
-            // Get the response code
+        
             responseCode = connection.getResponseCode();
 
             if (responseCode == 200) {
-                // Read the response from the API
+                
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 String inputLine;
@@ -193,7 +193,7 @@ public class WeatherDataAppGui {
                 }
                 reader.close();
 
-                // Parse the JSON response
+                
                 JSONObject jsonResponse = new JSONObject(response.toString());
                 double temperatureInKelvin = jsonResponse.getJSONObject("main").getDouble("temp");
                 double temperatureInCelsius = temperatureInKelvin - 273.15; // Convert to Celsius
@@ -203,7 +203,7 @@ public class WeatherDataAppGui {
                 double windSpeed = jsonResponse.getJSONObject("wind").getDouble("speed");
                 double windDirection = jsonResponse.getJSONObject("wind").getDouble("deg");
 
-                // Create a WeatherData object and populate it
+                
                 WeatherData weatherData = new WeatherData();
                 weatherData.setTemperature(temperatureInCelsius); // Use the converted temperature in Celsius
                 weatherData.setPressure(pressure);
@@ -222,7 +222,7 @@ public class WeatherDataAppGui {
             System.out.println("HTTP error code: " + responseCode);
         }
 
-        return null; // Return null if retrieval fails
+        return null; 
     }
 
     public void display() {
