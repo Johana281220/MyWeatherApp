@@ -24,17 +24,10 @@ public class WeatherDataDaoImpl implements WeatherDataDao {
         Session session = sessionFactory.getCurrentSession();
         return session.get(WeatherData.class,id);
     }
-
     @Override
     public List<WeatherData> findByLocation(Location location) {
-        try (Session session = sessionFactory.openSession()) {
-            CriteriaBuilder builder = session.getCriteriaBuilder();
-            CriteriaQuery<WeatherData> query = builder.createQuery(WeatherData.class);
-            Root<WeatherData> root = query.from(WeatherData.class);
-            query.select(root).where((builder.equal(root.get("location"),location)));
-            Query<WeatherData> q = session.createQuery(query);
-            return q.getResultList();
-        }
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from WeatherData where location = :location", WeatherData.class).list();
     }
 
     @Override
