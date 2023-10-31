@@ -1,5 +1,4 @@
 package org.sda.consoleApp;
-
 import org.sda.dao.LocationDao;
 import org.sda.dao.LocationDaoImpl;
 import org.sda.dao.WeatherDataDao;
