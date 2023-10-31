@@ -26,8 +26,7 @@ public class Location {
 
     public Location() {
     }
-
-    public Location(double latitude, double longitude, String region, String country) {
+ public Location(double latitude, double longitude, String region, String country) {
 
     }
 
